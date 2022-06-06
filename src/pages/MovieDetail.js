@@ -4,6 +4,9 @@ import { useLocation } from 'react-router-dom';
 import { MovieState } from '../movieState';
 import Award from '../components/Award';
 
+import { motion } from 'framer-motion';
+import { pageAnimation } from '../animation';
+
 function MovieDetail() {
   const location = useLocation();
   const url = location.pathname;
@@ -13,12 +16,17 @@ function MovieDetail() {
   useEffect(() => {
     const currentMovie = movies.filter((stateMovie) => stateMovie.url === url);
     setMovie(currentMovie[0]);
-  }, [movie, movies, url]);
+  }, []);
 
   return (
     <>
       {movie && (
-        <Details>
+        <Details
+          variants={pageAnimation}
+          exit='exit'
+          initial='hidden'
+          animate='show'
+        >
           <Headline>
             <h2>{movie.title}</h2>
             <img src={movie.mainImg} alt={movie.title} />
@@ -45,7 +53,7 @@ function MovieDetail() {
   );
 }
 
-const Details = styled.div`
+const Details = styled(motion.div)`
   color: white;
 `;
 const Headline = styled.div`
