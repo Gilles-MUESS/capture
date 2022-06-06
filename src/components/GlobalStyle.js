@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
     color: white;
   }
   h4 {
+    font-size: 2rem;
     font-weight: 700;
   }
   span {
@@ -48,6 +49,7 @@ const GlobalStyle = createGlobalStyle`
   }
   a {
     font-size: 1.1rem;
+    font-weight: 300;
   }
   `;
 
