@@ -1,4 +1,5 @@
 import React from 'react';
+import { About, Description, Image } from '../styles';
 
 function FaqSection() {
   return (

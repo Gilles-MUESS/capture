@@ -7,10 +7,14 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {background: #1b1b1b;}
+  body {
+    background: #1b1b1b;
+    font-family: 'Inter', sans-serif;
+  }
   button {
     font-weight: 700;
     font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
     cursor: pointer;
     padding: 1rem 2rem;
     border: 3px solid #23d997;
