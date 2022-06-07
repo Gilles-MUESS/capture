@@ -3,11 +3,19 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import { motion } from 'framer-motion';
-import { fade, photoAnimation, lineAnimation } from '../animation';
+import { fade, photoAnimation, lineAnimation, slider } from '../animation';
+import useScroll from '../components/useScroll';
 
 function Movie({ movie }) {
+  const [element, controls] = useScroll();
+
   return (
-    <StyledMovie>
+    <StyledMovie
+      ref={element}
+      variants={fade}
+      animate={controls}
+      initial='hidden'
+    >
       <motion.h2 variants={fade}>{movie.title}</motion.h2>
       <motion.div variants={lineAnimation} className='line'></motion.div>
       <Link to={movie.url}>
@@ -23,7 +31,7 @@ function Movie({ movie }) {
   );
 }
 
-const StyledMovie = styled.div`
+const StyledMovie = styled(motion.div)`
   padding-bottom: 10rem;
   .line {
     height: 0.5rem;

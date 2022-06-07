@@ -1,16 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import { About } from '../styles';
+import Toggle from './Toggle';
+import { motion, AnimateSharedLayout } from 'framer-motion';
+import useScroll from './useScroll';
+import { scrollReveal } from '../animation';
 
 function FaqSection() {
+  const [element, controls] = useScroll();
   return (
-    <Faq>
-      <div className='description'>
-        <h2>
-          Any Questions ? <span>FAQ</span>
-        </h2>
-        <div className='question'>
-          <h4>How do I start ?</h4>
+    <Faq
+      variants={scrollReveal}
+      ref={element}
+      animate={controls}
+      initial='hidden'
+    >
+      <h2>
+        Any Questions ? <span>FAQ</span>
+      </h2>
+      <AnimateSharedLayout>
+        <Toggle title='How do I start ?'>
           <div className='answer'>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit ?</p>
             <p>
@@ -20,10 +29,9 @@ function FaqSection() {
               magnam veritatis, aliquid debitis pariatur sed.
             </p>
           </div>
-          <div className='faq-line'></div>
-        </div>
-        <div className='question'>
-          <h4>Payment methods</h4>
+        </Toggle>
+
+        <Toggle title='Payment methods'>
           <div className='answer'>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit ?</p>
             <p>
@@ -33,10 +41,9 @@ function FaqSection() {
               magnam veritatis, aliquid debitis pariatur sed.
             </p>
           </div>
-          <div className='faq-line'></div>
-        </div>
-        <div className='question'>
-          <h4>What products do you offer ?</h4>
+        </Toggle>
+
+        <Toggle title='What products do you offer ?'>
           <div className='answer'>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit ?</p>
             <p>
@@ -46,10 +53,9 @@ function FaqSection() {
               magnam veritatis, aliquid debitis pariatur sed.
             </p>
           </div>
-          <div className='faq-line'></div>
-        </div>
-        <div className='question'>
-          <h4>How do you work ?</h4>
+        </Toggle>
+
+        <Toggle title='How do you work ?'>
           <div className='answer'>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit ?</p>
             <p>
@@ -59,9 +65,8 @@ function FaqSection() {
               magnam veritatis, aliquid debitis pariatur sed.
             </p>
           </div>
-          <div className='faq-line'></div>
-        </div>
-      </div>
+        </Toggle>
+      </AnimateSharedLayout>
     </Faq>
   );
 }
