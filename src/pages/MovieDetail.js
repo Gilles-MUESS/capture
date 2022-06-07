@@ -88,6 +88,10 @@ const Presentation = styled.div`
   p {
     padding: 1.5rem 0;
   }
+
+  @media (max-width: 1300px) {
+    padding: 20vh 1rem 0;
+  }
 `;
 const Awards = styled.div`
   min-height: 80vh;
@@ -95,6 +99,10 @@ const Awards = styled.div`
   margin: 5rem 10rem;
   align-items: center;
   justify-content: space-around;
+  @media (max-width: 1300px) {
+    display: block;
+    margin: 2rem;
+  }
 `;
 const ImageDisplay = styled.div`
   min-height: 50vh;
